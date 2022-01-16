@@ -68,14 +68,14 @@ public class JSONManipulationSteps {
   }
 
   @Given("^we set the property \"([^\"]*)\" to value (\\d+)$")
-  public void we_add_set_the_property_to_value(String property, Integer value) throws Throwable {
+  public void weSetThePropertyToValue(String property, Integer value) throws Throwable {
     JSONNumber numberValue = new JSONNumber(value.toString());
     JSONObject jsonObject = (JSONObject) JSONSteps.getJSONValue();
     jsonObject.put(property, numberValue);
   }
 
   @Given("^we set the property \"([^\"]*)\" to value \"([^\"]*)\"$")
-  public void we_add_set_the_property_to_value(String property, String value) throws Throwable {
+  public void weSetThePropertyToValue(String property, String value) throws Throwable {
     JSONString stringValue = new JSONString(value);
     JSONObject jsonObject = (JSONObject) JSONSteps.getJSONValue();
     jsonObject.put(property, stringValue);
