@@ -1,0 +1,56 @@
+plugins {
+  id 'java'
+}
+
+import java.text.SimpleDateFormat
+
+def version            = "1.0"
+
+def firstCopyrightYear = 2022
+def buildDate          = new Date()
+def currentYear        = Calendar.getInstance().get(Calendar.YEAR)
+def vendorName         = "d-coding GmbH"
+def group              = "de.dcoding"
+
+def tz = TimeZone.getTimeZone("UTC")
+def df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+df.setTimeZone(tz)
+
+def buildDateString = df.format(buildDate)
+
+def sourceCompatibility = 1.7
+def targetCompatibility = 1.7
+  
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+allprojects {
+  apply plugin: 'java'
+
+  repositories {
+    mavenCentral()
+  }
+}
+
+subprojects {
+  jar {
+    onlyIf {
+      !sourceSets.main.allSource.files.isEmpty()
+    }
+    manifest {
+      attributes(
+        "Implementation-Title":       project.name,
+        "Implementation-Version":     version,
+        "Implementation-Vendor":      vendorName,
+        "Vendor-URL":                 "https://www.d-coding.de/",
+        "Copyright":                  "© ${(firstCopyrightYear < currentYear) ? (firstCopyrightYear + "-") : ""}${currentYear} by ${vendorName}",
+        "Built-By":                   vendorName,
+        "Build-Date":                 buildDateString,
+        "Build-Jdk":                  "${System.properties["java.version"]} (${System.properties["java.vendor"]} ${System.properties["java.vm.version"]})",
+        "Build-OS":                   "${System.properties["os.name"]} ${System.properties["os.arch"]} ${System.properties["os.version"]}",
+        "Created-By":                 "Gradle ${gradle.gradleVersion}",
+        "Main-Class":                 "de.dcoding.Application"
+      )
+    }
+  }
+}
