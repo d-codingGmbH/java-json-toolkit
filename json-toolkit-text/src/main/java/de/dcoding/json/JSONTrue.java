@@ -23,6 +23,11 @@ package de.dcoding.json;
  * @since  1.0
  */
 public class JSONTrue extends JSONBoolean {
+  /**
+   * Returns a fixed value of {@code true} as the value.
+   * 
+   * @return Always true
+   */
   @Override
   public Boolean getValue() {
     return true;

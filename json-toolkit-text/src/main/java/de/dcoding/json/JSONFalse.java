@@ -23,6 +23,11 @@ package de.dcoding.json;
  * @since  1.0
  */
 public class JSONFalse extends JSONBoolean {
+  /**
+   * Returns a fixed value of {@code false} as the value.
+   * 
+   * @return Always false
+   */
   @Override
   public Boolean getValue() {
     return false;

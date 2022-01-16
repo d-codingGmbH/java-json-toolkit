@@ -25,10 +25,20 @@ package de.dcoding.json;
 public class JSONString extends JSONPrimitiveValue<String> {
   private String value;
   
+  /**
+   * Constructs a new instance with the specified concrete string value.
+   * 
+   * @param value The string value
+   */
   public JSONString(String value) {
     setValue(value);
   }
   
+  /**
+   * Returns the string value.
+   * 
+   * @return The string value
+   */
   @Override
   public String getValue() {
     return value;
@@ -38,6 +48,14 @@ public class JSONString extends JSONPrimitiveValue<String> {
     this.value = value;
   }
 
+  /**
+   * Indicates whether the specified object is equal to this instance.
+   * Two {@link JSONString} instances are equal if their string values are
+   * equal. Otherwise they are not equal.
+   * 
+   * @param obj The object to be compared to
+   * @return Indication if the specified object is considered to be equal
+   */
   @Override
   public boolean equals(Object obj) {
     if (obj instanceof JSONString) {
@@ -55,6 +73,12 @@ public class JSONString extends JSONPrimitiveValue<String> {
     }
   }
 
+  /**
+   * Converts the string value into a JSON conformant textual representation.
+   * Special characters are automatically escaped.
+   * 
+   * @return The string representation
+   */
   @Override
   public String toString() {
     char[] preEscapingCharacters = getValue().toCharArray();

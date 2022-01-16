@@ -23,6 +23,12 @@ package de.dcoding.json;
  * @since  1.0
  */
 public abstract class JSONValue {
+  /**
+   * Converts a JSON value into its textual representation by using a default
+   * {@link JSONFormatter}.
+   * 
+   * @return The string representation
+   */
   @Override
   public String toString() {
     JSONFormatter formatter = new JSONFormatter();
@@ -30,6 +36,13 @@ public abstract class JSONValue {
     return toString(formatter);
   }
 
+  /**
+   * Converts a JSON value into its textual representation by using the specified
+   * {@link JSONFormatter} instance
+   * 
+   * @param formatter The formatter
+   * @return The string representation
+   */
   public String toString(JSONFormatter formatter) {
     if (formatter == null) {
       throw new IllegalArgumentException();

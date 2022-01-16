@@ -25,10 +25,21 @@ package de.dcoding.json;
 public class JSONNumber extends JSONPrimitiveValue<String> {
   private String value;
   
+  /**
+   * Constructs a new instance with the specified string representation
+   * of the associated number.
+   * 
+   * @param value The string representing the number
+   */
   public JSONNumber(String value) {
     setValue(value);
   }
 
+  /**
+   * Returns the string representing the associated number.
+   * 
+   * @return The string representing the number
+   */
   @Override
   public String getValue() {
     return value;

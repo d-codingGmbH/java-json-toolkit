@@ -23,8 +23,18 @@ package de.dcoding.json;
  * @since  1.0
  */
 public abstract class JSONPrimitiveValue<T> extends JSONValue {
+  /**
+   * Returns the concrete value.
+   * 
+   * @return The value
+   */
   public abstract T getValue();
   
+  /**
+   * Returns the string representation of the concrete value.
+   * 
+   * @return The string representation of the value
+   */
   @Override
   public String toString() {
     return getValue().toString();

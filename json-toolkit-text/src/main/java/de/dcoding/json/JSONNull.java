@@ -23,11 +23,21 @@ package de.dcoding.json;
  * @since  1.0
  */
 public class JSONNull extends JSONPrimitiveValue<Object> {
+  /**
+   * Returns a fixed value of {@code null} as the value.
+   * 
+   * @return Always null
+   */
   @Override
   public Object getValue() {
     return null;
   }
   
+  /**
+   * Returns a string representing the value.
+   * 
+   * @return Always "null"
+   */
   @Override
   public String toString() {
     return "null";

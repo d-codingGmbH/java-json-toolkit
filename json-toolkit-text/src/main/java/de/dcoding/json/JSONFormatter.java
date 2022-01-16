@@ -37,14 +37,28 @@ public class JSONFormatter {
   private JSONFormatterSettings settings;
   private String currentIndention = "";
 
+  /**
+   * Constructs a new instance with a default {@link JSONFormatterSettings} instance.
+   */
   public JSONFormatter() {
     this(new JSONFormatterSettings());
   }
 
+  /**
+   * Constructs a new instance with specified {@link JSONFormatterSettings}.
+   * 
+   * @param settings The settings to use
+   */
   public JSONFormatter(JSONFormatterSettings settings) {
     setSettings(settings);
   }
 
+  /**
+   * Converts the specified {@link JSONValue} instance into its formatted textual representation.
+   * 
+   * @param value The value to convert
+   * @return The formatted textual representation
+   */
   public String toString(JSONValue value) {
     if (value == null) {
       return null;
@@ -243,10 +257,21 @@ public class JSONFormatter {
     }
   }
 
+  /**
+   * Returns the configured {@link JSONFormatterSettings}
+   * 
+   * @return The configured settings
+   */
   public JSONFormatterSettings getSettings() {
     return settings;
   }
 
+  /**
+   * Applies the specified {@link JSONFormatterSettings} for successive conversions
+   * with {@link #toString()}.
+   * 
+   * @param value The settings defining the formatting
+   */
   public void setSettings(JSONFormatterSettings value) {
     if (value == null) {
       throw new IllegalArgumentException();
