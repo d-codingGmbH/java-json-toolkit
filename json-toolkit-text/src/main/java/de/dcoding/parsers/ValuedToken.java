@@ -23,5 +23,10 @@ package de.dcoding.parsers;
  * @since  1.0
  */
 public interface ValuedToken<T> {
+  /**
+   * Returns the value that is associated with this token.
+   * 
+   * @return The value associated to this token instance
+   */
   public T getValue();
 }

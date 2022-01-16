@@ -17,12 +17,17 @@
 package de.dcoding.parsers;
 
 /**
- * Token representing an unexpected token
+ * Token representing an unexpected token which triggers an error in the parsing process
  * 
  * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class ErrorToken extends Token {
+  /**
+   * Constructs a new error token and sets the start position.
+   * 
+   * @param position The start position of the unexpected values in the input data
+   */
   public ErrorToken(int position) {
     super(position);
   }

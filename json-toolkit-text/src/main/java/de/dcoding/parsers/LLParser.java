@@ -27,12 +27,27 @@ import java.util.LinkedList;
  */
 public abstract class LLParser<T> extends Parser<T> {
   private LinkedList<Token> tokens;
+  /**
+   * The lookahead tokens that are used by the parsing process.
+   */
   protected Token[] lookahead;
 
+  /**
+   * Constructs a new LLParser instance with a specified lookahead size.
+   * 
+   * @param lookahead The size of the lookahead that will be used for the LL parser
+   */
   protected LLParser(int lookahead) {
     this.lookahead = new Token[lookahead];
   }
 
+  /**
+   * Parse the given input into an object defined by concrete implementation of class.
+   * 
+   * @param input The input string that will be parsed
+   * @return The parsed object
+   * @throws ParserException
+   */
   @Override
   public T parse(String input) throws ParserException {
     initializeTokens(input);
@@ -55,6 +70,13 @@ public abstract class LLParser<T> extends Parser<T> {
     updateLookahead();
   }
 
+  /**
+   * Evaluates if a specified token is relevant for the parsing process.
+   * 
+   * @param token The token which is to be evaluated
+   * @return If the token is relevant or can be ignored
+   * @throws ParserException
+   */
   protected abstract boolean isRelevantToken(Token token) throws ParserException;
 
   private void updateLookahead() {
@@ -69,10 +91,19 @@ public abstract class LLParser<T> extends Parser<T> {
     }
   }
 
+  /**
+   * Updates internal data structures while iterating over tokens.
+   */
   protected void nextToken() {
     tokens.pop();
     updateLookahead();
   }
 
+  /**
+   * The start of the parsing process by a concrete implementation.
+   * 
+   * @return The parsed object
+   * @throws ParserException
+   */
   protected abstract T processStartSymbol() throws ParserException;
 }

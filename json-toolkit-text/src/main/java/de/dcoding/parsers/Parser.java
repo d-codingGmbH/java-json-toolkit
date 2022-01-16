@@ -25,7 +25,20 @@ import java.util.Iterator;
  * @since  1.0
  */
 public abstract class Parser<T> {
+  /**
+   * Returns a tokenizer implementation which is used by the parsing process.
+   * 
+   * @param input The input string that will be parsed
+   * @return The tokenizer instance
+   */
   protected abstract Iterator<? extends Token> getTokenizer(String input);
   
+  /**
+   * Parse the given input into an object defined by concrete implementation of class.
+   * 
+   * @param input The input string that will be parsed
+   * @return The parsed object
+   * @throws ParserException
+   */
   public abstract T parse(String input) throws ParserException;
 }

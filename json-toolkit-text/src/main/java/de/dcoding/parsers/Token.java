@@ -25,14 +25,29 @@ package de.dcoding.parsers;
 public abstract class Token extends Symbol {
   private int position;
   
+  /**
+   * Constructs a new token and sets the start position.
+   * 
+   * @param position The start position of the token in the input data
+   */
   protected Token(int position) {
     setPosition(position);
   }
   
+  /**
+   * A more natural alternative to {@link #getPosition()}.
+   * 
+   * @return The start position of the token in the input data
+   */
   public int at() {
     return position;
   }
   
+  /**
+   * Getter for the start position of the token in the input data
+   * 
+   * @return The start position of the token in the input data
+   */
   public int getPosition() {
     return position;
   }
