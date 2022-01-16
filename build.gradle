@@ -1,16 +1,14 @@
 plugins {
-  id 'java'
+  id "java"
 }
 
 import java.text.SimpleDateFormat
-
-def version            = "1.0"
 
 def firstCopyrightYear = 2022
 def buildDate          = new Date()
 def currentYear        = Calendar.getInstance().get(Calendar.YEAR)
 def vendorName         = "d-coding GmbH"
-def group              = "de.dcoding"
+def vendorUrl          = "https://www.d-coding.de/"
 
 def tz = TimeZone.getTimeZone("UTC")
 def df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
@@ -21,11 +19,12 @@ def buildDateString = df.format(buildDate)
 def sourceCompatibility = 1.7
 def targetCompatibility = 1.7
   
-compileJava.options.encoding = 'UTF-8'
-compileTestJava.options.encoding = 'UTF-8'
+compileJava.options.encoding     = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
 
 allprojects {
-  apply plugin: 'java'
+  apply plugin: "java"
+  apply plugin: "maven-publish"
 
   repositories {
     mavenCentral()
@@ -33,6 +32,14 @@ allprojects {
 }
 
 subprojects {
+  group   = "de.d-coding"
+  version = "1.0.0"
+
+  java {
+    withSourcesJar()
+    withJavadocJar()
+  }
+
   jar {
     onlyIf {
       !sourceSets.main.allSource.files.isEmpty()
@@ -40,9 +47,9 @@ subprojects {
     manifest {
       attributes(
         "Implementation-Title":       project.name,
-        "Implementation-Version":     version,
+        "Implementation-Version":     project.version,
         "Implementation-Vendor":      vendorName,
-        "Vendor-URL":                 "https://www.d-coding.de/",
+        "Vendor-URL":                 vendorUrl,
         "Copyright":                  "© ${(firstCopyrightYear < currentYear) ? (firstCopyrightYear + "-") : ""}${currentYear} by ${vendorName}",
         "Built-By":                   vendorName,
         "Build-Date":                 buildDateString,
@@ -51,6 +58,31 @@ subprojects {
         "Created-By":                 "Gradle ${gradle.gradleVersion}",
         "Main-Class":                 "de.dcoding.Application"
       )
+    }
+  }
+
+  publishing {
+    publications {
+      "$project.name"(MavenPublication) {
+        pom {
+          artifactId = project.name
+          from components.java
+          organization {
+            name = vendorName
+            url  = vendorUrl
+          }
+          licenses {
+            license {
+              name = "The Apache License, Version 2.0"
+              url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+          }
+          scm {
+            connection = "scm:git:https://github.com/d-codingGmbH/java-json-toolkit.git"
+            url = "https://github.com/d-codingGmbH/java-json-toolkit"
+          }
+        }
+      }
     }
   }
 }
