@@ -23,6 +23,11 @@ package de.dcoding.json.tokens;
  * @since  1.0
  */
 public class JSONValueSeparatorToken extends JSONToken {
+  /**
+   * Constructs a new instance of the token with the specified start position.
+   * 
+   * @param position The start position of the token in the input data
+   */
   public JSONValueSeparatorToken(int position) {
     super(position);
   }

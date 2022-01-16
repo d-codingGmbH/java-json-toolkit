@@ -27,11 +27,23 @@ import de.dcoding.parsers.ValuedToken;
 public abstract class ValuedJSONToken<T> extends JSONToken implements ValuedToken<T> {
   private T value;
   
+  /**
+   * Constructs a new instance of the token with the specified start position and value.
+   * The value is retrievable with {@link #getValue()}
+   * 
+   * @param position The start position of the token in the input data
+   * @param value The value associated with the token
+   */
   protected ValuedJSONToken(int position, T value) {
     super(position);
     setValue(value);
   }
   
+  /**
+   * Returns the value that is associated with this token.
+   * 
+   * @return The value associated to this token instance
+   */
   @Override
   public T getValue() {
     return value;

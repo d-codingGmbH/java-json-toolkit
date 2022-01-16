@@ -25,6 +25,11 @@ import de.dcoding.parsers.Token;
  * @since  1.0
  */
 public abstract class JSONToken extends Token {
+  /**
+   * Constructs a new instance of the token with the specified start position.
+   * 
+   * @param position The start position of the token in the input data
+   */
   protected JSONToken(int position) {
     super(position);
   }
