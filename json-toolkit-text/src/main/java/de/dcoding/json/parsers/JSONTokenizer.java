@@ -48,6 +48,11 @@ public class JSONTokenizer implements Iterator<Token> {
   private static final Pattern NUMBER_PATTERN = Pattern.compile("-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][-+]?[0-9]+)?");
   private static final Pattern STRING_PATTERN = Pattern.compile("\"([\\x20\\x21\\u0023-\\u005b\\u005d-\\x{10ffff}]|\\\\([bfnrt\\u0022\\u005c\\u002f]|u[0-9a-fA-F]{4}))*\"");
   
+  /**
+   * Constructs a new tokenizer implementation for textual JSON representations.
+   * 
+   * @param input The textual JSON representation
+   */
   public JSONTokenizer(String input) {
     setInput(input);
   }
@@ -57,11 +62,21 @@ public class JSONTokenizer implements Iterator<Token> {
     position = 0;
   }
 
+  /**
+   * Returns if there is at least one more token or if the end of the input is reached.
+   * 
+   * @return If there is at least one more token
+   */
   @Override
   public boolean hasNext() {
     return (!(erroneous || (input.length() == 0)));
   }
 
+  /**
+   * Returns the next token instance.
+   * 
+   * @return The next token instance
+   */
   @Override
   public Token next() {
     Token token = null;
@@ -132,6 +147,12 @@ public class JSONTokenizer implements Iterator<Token> {
     return token;
   }
 
+  /**
+   * Would remove the current token instance from the underlying collection.
+   * It is not supported by the current implementation.
+   * 
+   * @throws UnsupportedOperationException The method is not supported
+   */
   @Override
   public void remove() {
     throw new UnsupportedOperationException();

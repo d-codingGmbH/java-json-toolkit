@@ -24,7 +24,7 @@ import de.dcoding.json.tokens.*;
 import de.dcoding.parsers.*;
 
 /**
- * Implementation of an ll parser for parsing a JSON string representation to objects
+ * Implementation of an LL parser for parsing a JSON string representation to objects
  * 
  * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
@@ -32,10 +32,20 @@ import de.dcoding.parsers.*;
 public class JSONLLParser extends LLParser<JSONValue> {
   private static final Pattern UNICODE_PATTERN = Pattern.compile("\\\\u([0-9a-fA-F]{4})");
   
+  /**
+   * Constructs a new instance of a {@link LLParser} for {@link JSONValue}s with a lookahead of 1.
+   */
   public JSONLLParser() {
     super(1);
   }
   
+  /**
+   * Parse the given input into a {@link JSONValue} instance.
+   * 
+   * @param input The input string that will be parsed
+   * @return The parsed object
+   * @throws ParserException
+   */
   @Override
   public JSONValue parse(String input) throws ParserException {
     if ((input == null) || input.matches("^\\s*$")) {
@@ -45,11 +55,24 @@ public class JSONLLParser extends LLParser<JSONValue> {
     }
   }
 
+  /**
+   * Returns a {@link JSONTokenizer} instance which is used by the parsing process.
+   * 
+   * @param input The input string that will be parsed
+   * @return The tokenizer instance
+   */
   @Override
   protected JSONTokenizer getTokenizer(String input) {
     return new JSONTokenizer(input);
   }
   
+  /**
+   * Evaluates if a specified token is relevant for the parsing process.
+   * 
+   * @param token The token which is to be evaluated
+   * @return If the token is relevant or can be ignored
+   * @throws ParserException
+   */
   @Override
   protected boolean isRelevantToken(Token token) throws ParserException {
     if (token instanceof ErrorToken) {
@@ -60,6 +83,12 @@ public class JSONLLParser extends LLParser<JSONValue> {
     return !(token instanceof JSONWhitespaceToken);
   }
 
+  /**
+   * The start of the parsing process.
+   * 
+   * @return The parsed object
+   * @throws ParserException
+   */
   @Override
   protected JSONValue processStartSymbol() throws ParserException {
     return processValue();
