@@ -59,7 +59,7 @@ public class JSONFormatterSettings {
   private boolean addNewlineAfterValueSeparator;
   private boolean addSpaceAfterValueSeparator;
   private String newlineString;
-  private String indentationString;
+  private String indentionString;
   
   public JSONFormatterSettings() {
     setAddNewlineAfterObjectBegin(DEFAULT_ADD_NEWLINE_AFTER_OBJECT_BEGIN);
@@ -223,13 +223,13 @@ public class JSONFormatterSettings {
   }
   
   public String getIndentionString() {
-    return indentationString;
+    return indentionString;
   }
 
   public void setIndentionString(String value) {
     if (value != null) {
       if (value.matches("^([ ]*|\\t*)$")) {
-        indentationString = value;
+        indentionString = value;
       }
     }
   }
