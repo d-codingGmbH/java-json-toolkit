@@ -15,14 +15,14 @@ To use the library in your projects, you have to create the dependency to the li
 Gradle:
 ```gradle
 dependencies {
-  implementation 'de.dcoding:json-toolkit-text:1.0'
+  implementation 'de.d-coding:json-toolkit-text:1.0'
 }
 ```
 
 Maven:
 ```xml
 <dependency>
-  <groupId>de.dcoding</groupId>
+  <groupId>de.d-coding</groupId>
   <artifactId>json-toolkit-text</artifactId>
   <version>1.0</version>
 </dependency>
@@ -30,21 +30,69 @@ Maven:
 
 ### Usage
 
-TODO sample usage code snippets
+Sample usage code snippets. 
+
 Parsing JSON texts:
 ```java
+String jsonText = "{\"foor\":{}}";
+JSONLLParser parser = new JSONLLParser();
+JSONValue jsonValue = parser.parse(stringValue);
+```
+or
+```java
+JSONObject object = JSON.decode("{\"foor\":{}}");
+```
+or
+```java
+JSONArray array = JSON.decode("[1, 2, null, 3]");
 ```
 
 Manipulating JSON values:
 ```java
+JSONValue jsonValue = new JSONObject();
+jsonValue.put("foo", "bar");
+```
+or
+```java
+JSONValue jsonValue = JSON.decode("{\"foor\":{}}");
+JSONObject object = (JSONObject)jsonValue.get("foo");
+object.put("bar", 42);
+```
+or
+```java
+JSONValue jsonValue = JSON.decode("{\"foor\":{}}");
+jsonValue.<JSONObject>getAs("foo").put("bar", 42);
 ```
 
 Convert to unformatted text:
 ```java
+JSONValue jsonValue = new JSONObject();
+jsonValue.put("foo", "bar");
+String text = jsonValue.toString();
 ```
 
 Convert to formatted text:
 ```java
+JSONValue jsonValue = new JSONObject();
+jsonValue.put("foo", "bar");
+JSONFormatter formatter = new JSONFormatter();
+String text = formatter.toString(jsonValue);
+```
+or
+```java
+JSONValue jsonValue = new JSONObject();
+jsonValue.put("foo", "bar");
+JSON.encode(jsonValue);
+```
+
+Convert to formatted text with indention of 3 spaces:
+```java
+JSONValue jsonValue = new JSONObject();
+jsonValue.put("foo", "bar");
+JSONFormatter formatter = new JSONFormatter();
+JSONFormatterSettings settings = formatter.getSettings();
+settings.setIndentionString("   ");
+String text = formatter.toString(jsonValue);
 ```
 
 ## License

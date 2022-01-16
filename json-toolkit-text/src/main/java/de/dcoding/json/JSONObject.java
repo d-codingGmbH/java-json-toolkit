@@ -59,6 +59,11 @@ public class JSONObject extends JSONValue implements Map<String, JSONValue> {
     return members.get(key);
   }
 
+  @SuppressWarnings("unchecked")
+  public <T extends JSONValue> T getAs(Object key) {
+    return (T) members.get(key);
+  }
+
   @Override
   public JSONValue put(String key, JSONValue value) {
     return members.put(key, value);

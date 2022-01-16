@@ -79,6 +79,11 @@ public class JSONArray extends JSONValue implements List<JSONValue> {
   public JSONValue get(int index) {
     return values.get(index);
   }
+    
+  @SuppressWarnings("unchecked")
+  public <T extends JSONValue> T getAs(int index) {
+    return (T) values.get(index);
+  }
 
   @Override
   public int indexOf(Object o) {
