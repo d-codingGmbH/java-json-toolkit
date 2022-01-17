@@ -113,7 +113,8 @@ public class JSONLLParser extends LLParser<JSONValue> {
       processMembers(object);
       nextToken();
     } else {
-      throw new ParserException();
+      String message = String.format("Unexpected token found: %s", lookaheadZero.getClass().getSimpleName());
+      throw new ParserException(message);
     }
   }
   
@@ -125,15 +126,26 @@ public class JSONLLParser extends LLParser<JSONValue> {
       processMember(object);
       processMembers(object);
     } else if (!(lookaheadZero instanceof JSONEndObjectToken)) {
-      throw new ParserException();
+      String message = String.format("Expected token: JSONEndObjectToken. Found: %s", lookaheadZero.getClass().getSimpleName());
+      throw new ParserException(message);
     }
   }
 
   private void processMember(JSONObject object) throws ParserException {
+    Token lookaheadZero = lookahead[0];
+    if (!(lookaheadZero instanceof JSONStringToken)) {
+      String message = String.format("Expected token: JSONStringToken. Found: %s", lookaheadZero.getClass().getSimpleName());
+      throw new ParserException(message);
+    }
     String key = unescapeString(((JSONStringToken)lookahead[0]).getValue());
     
-    // TODO check first token to be a valid member name
     nextToken();
+    lookaheadZero = lookahead[0];
+    if (!(lookaheadZero instanceof JSONNameSeparatorToken)) {
+      String message = String.format("Expected token: JSONNameSeparatorToken. Found: %s", lookaheadZero.getClass().getSimpleName());
+      throw new ParserException(message);
+    }
+    
     nextToken();
     JSONValue value = processValue();
     
@@ -166,7 +178,8 @@ public class JSONLLParser extends LLParser<JSONValue> {
       processValues(array);
       nextToken();
     } else {
-      throw new ParserException();
+      String message = String.format("Unexpected token found: %s", lookaheadZero.getClass().getSimpleName());
+      throw new ParserException(message);
     }
   }
   
@@ -179,7 +192,8 @@ public class JSONLLParser extends LLParser<JSONValue> {
       array.add(value);
       processValues(array);
     } else if (!(lookaheadZero instanceof JSONEndArrayToken)) {
-      throw new ParserException();
+      String message = String.format("Expected token: JSONEndArrayToken. Found: %s", lookaheadZero.getClass().getSimpleName());
+      throw new ParserException(message);
     }
   }
 
@@ -208,7 +222,8 @@ public class JSONLLParser extends LLParser<JSONValue> {
       nextToken();
       return new JSONNumber(value);
     } else {
-      throw new ParserException();
+      String message = String.format("Unexpected token found: %s", lookaheadZero.getClass().getSimpleName());
+      throw new ParserException(message);
     }
   }
   

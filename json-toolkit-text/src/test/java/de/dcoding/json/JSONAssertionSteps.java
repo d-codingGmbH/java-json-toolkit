@@ -16,7 +16,11 @@
 
 package de.dcoding.json;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -189,5 +193,16 @@ public class JSONAssertionSteps {
     String stringValue = JSONSteps.getStringValue();
     String message = String.format("The string is: %s", stringValue);
     assertEquals(message, value, stringValue.length());
+  }
+
+  @Then("^we expect the exception to be of type (.+Exception)$")
+  public void weExpectAnException(String expectedException) throws Throwable {
+    List<Exception> exceptions = JSONSteps.getExceptions();
+    assertNotNull("No exception was thrown", exceptions);
+    assertFalse("No exception was thrown", exceptions.isEmpty());
+
+    Exception exception = exceptions.get(0);
+    String exceptionName = exception.getClass().getSimpleName();
+    assertEquals("Wrong type of exception was thrown", expectedException, exceptionName);
   }
 }

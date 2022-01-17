@@ -164,4 +164,60 @@ Feature: Parse JSON
     Then we expect a JSONArray
     And we expect 1 elements
     And we expect the value 1 is a JSONObject
+
+  Scenario: Parse an invalid number
+    Given we expect an exception
+    And the String "23.0.0"
+    When we parse it
+    Then we expect the exception to be of type ParserException
+
+  Scenario: Parse an invalid array
+    Given we expect an exception
+    And the String "[,23]"
+    When we parse it
+    Then we expect the exception to be of type ParserException
+
+  Scenario: Parse an object with no member name
+    Given we expect an exception
+    And the String "{:"bar"}"
+    When we parse it
+    Then we expect the exception to be of type ParserException
+
+  Scenario: Parse an object with no member value
+    Given we expect an exception
+    And the String "{"foo":}"
+    When we parse it
+    Then we expect the exception to be of type ParserException
+
+  Scenario: Parse an object with no name value separator
+    Given we expect an exception
+    And the String "{"foo""bar"}"
+    When we parse it
+    Then we expect the exception to be of type ParserException
+
+  Scenario: Parse an object with element seperator
+    Given we expect an exception
+    And the String "{"foo","bar"}"
+    When we parse it
+    Then we expect the exception to be of type ParserException
+
+  Scenario: Parse an object with non-string member name
+    Given we expect an exception
+    And the String "{true:null}"
+    When we parse it
+    Then we expect the exception to be of type ParserException
+
+  Scenario: Parse an object with an non-lowercase literal
+    Given we expect an exception
+    And the String <input>
+    When we parse it
+    Then we expect the exception to be of type ParserException
     
+    Examples:
+    | input    |
+    | "Null"   |
+    | "NULL"   |
+    | "True"   |
+    | "TRUE"   |
+    | "False"  |
+    | "FALSE"  |

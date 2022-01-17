@@ -16,6 +16,11 @@
 
 package de.dcoding.json;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.cucumber.java.en.Given;
+
 /**
  * Static data for usage in successive steps
  *
@@ -23,8 +28,33 @@ package de.dcoding.json;
  * @since  1.0
  */
 public class JSONSteps {
+  private static boolean isExpectingExceptions;
+  private static List<Exception> exceptions;
   private static JSONValue jsonValue;
   private static String stringValue;
+
+  public static boolean isExpectingExceptions() {
+    return isExpectingExceptions;
+  }
+
+  public static void setExpectingExceptions(boolean value) {
+    if (value && !isExpectingExceptions) {
+      exceptions = new ArrayList<>();
+    }
+    isExpectingExceptions = value;
+  }
+
+  public static List<Exception> getExceptions() {
+    setExpectingExceptions(false);
+    return exceptions;
+  }
+
+  public static void add(Exception e) throws Exception {
+    if (!isExpectingExceptions) {
+      throw e;
+    }
+    exceptions.add(e);
+  }
 
   public static JSONValue getJSONValue() {
     return jsonValue;
@@ -40,5 +70,10 @@ public class JSONSteps {
 
   public static void setStringValue(String value) {
     stringValue = value;
+  }
+
+  @Given("^we expect an exception$")
+  public void weExpectAnException() throws Throwable {
+    setExpectingExceptions(true);
   }
 }

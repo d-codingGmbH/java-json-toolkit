@@ -79,14 +79,22 @@ public class TextToJSONSteps {
   public void weParseIt() throws Throwable {
     JSONLLParser parser = new JSONLLParser();
     String stringValue = JSONSteps.getStringValue();
-    JSONValue jsonValue = parser.parse(stringValue);
-    JSONSteps.setJSONValue(jsonValue);
+    try {
+      JSONValue jsonValue = parser.parse(stringValue);
+      JSONSteps.setJSONValue(jsonValue);
+    } catch (Exception e) {
+      JSONSteps.add(e);
+    }
   }
 
   @When("^we decode it$")
   public void weDecodeIt() throws Throwable {
     String stringValue = JSONSteps.getStringValue();
-    JSONValue jsonValue = JSON.decode(stringValue);
-    JSONSteps.setJSONValue(jsonValue);
+    try {
+      JSONValue jsonValue = JSON.decode(stringValue);
+      JSONSteps.setJSONValue(jsonValue);
+    } catch (Exception e) {
+      JSONSteps.add(e);
+    }
   }
 }
