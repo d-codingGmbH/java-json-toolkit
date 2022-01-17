@@ -15,7 +15,7 @@ To use the library in your projects, you have to create the dependency to the li
 Gradle:
 ```gradle
 dependencies {
-  implementation 'de.d-coding:json-toolkit-text:1.0.0'
+  implementation 'de.d-coding:json-toolkit-text:1.0.1'
 }
 ```
 
@@ -24,7 +24,7 @@ Maven:
 <dependency>
   <groupId>de.d-coding</groupId>
   <artifactId>json-toolkit-text</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
@@ -34,13 +34,13 @@ Sample usage code snippets.
 
 Parsing JSON texts:
 ```java
-String jsonText = "{\"foor\":{}}";
+String jsonText = "{\"foo\":{}}";
 JSONLLParser parser = new JSONLLParser();
 JSONValue jsonValue = parser.parse(stringValue);
 ```
 or
 ```java
-JSONObject object = JSON.decode("{\"foor\":{}}");
+JSONObject object = JSON.decode("{\"foo\":{}}");
 ```
 or
 ```java
@@ -54,13 +54,13 @@ jsonValue.put("foo", "bar");
 ```
 or
 ```java
-JSONValue jsonValue = JSON.decode("{\"foor\":{}}");
+JSONValue jsonValue = JSON.decode("{\"foo\":{}}");
 JSONObject object = (JSONObject)jsonValue.get("foo");
 object.put("bar", 42);
 ```
 or
 ```java
-JSONValue jsonValue = JSON.decode("{\"foor\":{}}");
+JSONValue jsonValue = JSON.decode("{\"foo\":{}}");
 jsonValue.<JSONObject>getAs("foo").put("bar", 42);
 ```
 
