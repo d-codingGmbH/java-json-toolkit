@@ -87,6 +87,22 @@ Feature: Parse JSON
     | "1.2e2"   |
     | "3.1e+3"  |
     | "-0.3E-4" |
+  
+  Scenario Outline: Access parsed numbers as Java types
+    Given the String <input>
+    When we parse it
+    Then we expect a JSONNumber
+    And we expect access as <type> to be not null
+    
+    Examples:
+    | input     | type           |
+    | "23"      | Integer        |
+    | "-1"      | Integer        |
+    | "1.0"     | Floating Point |
+    | "-2.3"    | Floating Point |
+    | "1.2e2"   | Floating Point |
+    | "3.1e+3"  | Floating Point |
+    | "-0.3E-4" | Floating Point |
 
   Scenario: Parse an empty object
     Given the String "{}"

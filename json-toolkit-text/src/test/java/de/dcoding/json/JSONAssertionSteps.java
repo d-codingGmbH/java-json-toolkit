@@ -205,4 +205,32 @@ public class JSONAssertionSteps {
     String exceptionName = exception.getClass().getSimpleName();
     assertEquals("Wrong type of exception was thrown", expectedException, exceptionName);
   }
+
+  @Then("^we expect access as (Integer|Floating Point) to be not null$")
+  public void weExpectAccessAsTypeToBeNotNull(String numberType) throws Throwable {
+    JSONValue jsonValue = JSONSteps.getJSONValue();
+    JSONNumber jsonNumber = (JSONNumber)jsonValue;
+
+    String assertionErrorMessage;
+    switch (numberType) {
+      case "Integer":
+        assertionErrorMessage = String.format("Integer value expected, but not found: \"%s\"", jsonNumber.getValue());
+        assertTrue(assertionErrorMessage, jsonNumber.isInteger());
+        assertNotNull(assertionErrorMessage, jsonNumber.getIntegerValue());
+        
+        assertionErrorMessage = String.format("Floating point value not expected, but found: \"%s\"", jsonNumber.getValue());
+        assertFalse(assertionErrorMessage, jsonNumber.isFloatingPoint());
+        assertNull(assertionErrorMessage, jsonNumber.getFloatingPointValue());
+        break;
+      case "Floating Point":
+        assertionErrorMessage = String.format("Floating point value expected, but not found: \"%s\"", jsonNumber.getValue());
+        assertTrue(assertionErrorMessage, jsonNumber.isFloatingPoint());
+        assertNotNull(assertionErrorMessage, jsonNumber.getFloatingPointValue());
+
+        assertionErrorMessage = String.format("Integer value not expected, but found: \"%s\"", jsonNumber.getValue());
+        assertFalse(assertionErrorMessage, jsonNumber.isInteger());
+        assertNull(assertionErrorMessage, jsonNumber.getIntegerValue());
+        break;
+    }
+  }
 }
