@@ -23,7 +23,6 @@ import de.dcoding.parsers.ParserException;
 /**
  * Helper class for static convenience methods
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSON {

@@ -19,7 +19,6 @@ package de.dcoding.json.tokens;
 /**
  * Token representing the end of a JSON array
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONEndArrayToken extends JSONToken {

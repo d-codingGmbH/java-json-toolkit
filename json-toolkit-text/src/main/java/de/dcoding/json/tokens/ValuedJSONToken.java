@@ -21,7 +21,6 @@ import de.dcoding.parsers.ValuedToken;
 /**
  * Abstract base class of a token containing a value
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public abstract class ValuedJSONToken<T> extends JSONToken implements ValuedToken<T> {

@@ -24,7 +24,6 @@ import io.cucumber.java.en.When;
 /**
  * Step definitions for converting text to JSON values
  *
- * @author David Ullrich <david.ullrich@ovsoftware.de>
  * @since  1.0
  */
 public class TextToJSONSteps {

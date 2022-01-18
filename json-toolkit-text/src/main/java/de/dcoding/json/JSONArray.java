@@ -25,7 +25,6 @@ import java.util.ListIterator;
 /**
  * Java class representing an array of JSON values
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONArray extends JSONValue implements List<JSONValue> {
@@ -127,7 +126,7 @@ public class JSONArray extends JSONValue implements List<JSONValue> {
    * 
    * @param index The position of the element to retrieve
    * @return The value at the position
-   * @throws IndexOutOfBoundsException If the index is out of range (index < 0 || index > size())
+   * @throws IndexOutOfBoundsException If the index is out of range (index &lt; 0 || index &gt; size())
    */
   @Override
   public JSONValue get(int index) {
@@ -141,7 +140,7 @@ public class JSONArray extends JSONValue implements List<JSONValue> {
    * @param <T> The type of the element
    * @param index The position of the element to retrieve
    * @return The typed value
-   * @throws IndexOutOfBoundsException If the index is out of range (index < 0 || index > size())
+   * @throws IndexOutOfBoundsException If the index is out of range (index &lt; 0 || index &gt; size())
    */
   @SuppressWarnings("unchecked")
   public <T extends JSONValue> T getAs(int index) {
@@ -210,7 +209,7 @@ public class JSONArray extends JSONValue implements List<JSONValue> {
    * 
    * @param index The starting position
    * @return A list iterator over the elements of the array.
-   * @throws IndexOutOfBoundsException If the index is out of range (index < 0 || index > size())
+   * @throws IndexOutOfBoundsException If the index is out of range (index &lt; 0 || index &gt; size())
    */
   @Override
   public ListIterator<JSONValue> listIterator(int index) {
@@ -222,7 +221,7 @@ public class JSONArray extends JSONValue implements List<JSONValue> {
    * 
    * @param index The position of the element to be removed
    * @return The removed element
-   * @throws IndexOutOfBoundsException If the index is out of range (index < 0 || index > size())
+   * @throws IndexOutOfBoundsException If the index is out of range (index &lt; 0 || index &gt; size())
    */
   @Override
   public JSONValue remove(int index) {
@@ -273,7 +272,7 @@ public class JSONArray extends JSONValue implements List<JSONValue> {
    * 
    * @param index The position of the element to be set
    * @param element The element to be set
-   * @throws IndexOutOfBoundsException If the index is out of range (index < 0 || index > size())
+   * @throws IndexOutOfBoundsException If the index is out of range (index &lt; 0 || index &gt; size())
    */
   @Override
   public JSONValue set(int index, JSONValue element) {
@@ -298,7 +297,7 @@ public class JSONArray extends JSONValue implements List<JSONValue> {
    * @param toIndex Exclusive end position
    * @return The created list of elements
    * @throws IndexOutOfBoundsException If the fromIndex or toIndex is out of range
-   *         (fromIndex < 0 || fromIndex > toIndex || toIndex > size())
+   *         (fromIndex &lt; 0 || fromIndex &gt; toIndex || toIndex &gt; size())
    */
   @Override
   public List<JSONValue> subList(int fromIndex, int toIndex) {

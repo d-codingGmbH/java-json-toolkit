@@ -39,7 +39,6 @@ import javax.swing.UIManager;
 /**
  * Prints basic manifest data to console or as dialog if executed as application
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class Application {

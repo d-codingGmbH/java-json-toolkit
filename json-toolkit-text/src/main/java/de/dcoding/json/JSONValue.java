@@ -19,7 +19,6 @@ package de.dcoding.json;
 /**
  * Abstract base class for JSON values
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public abstract class JSONValue {

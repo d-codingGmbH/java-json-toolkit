@@ -24,7 +24,6 @@ import java.util.Set;
 /**
  * Java class representing a JSON object
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONObject extends JSONValue implements Map<String, JSONValue> {

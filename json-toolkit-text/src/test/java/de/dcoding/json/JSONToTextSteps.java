@@ -22,7 +22,6 @@ import io.cucumber.java.en.When;
 /**
  * Step definitions for converting JSON values to possibly formatted text
  *
- * @author David Ullrich <david.ullrich@ovsoftware.de>
  * @since  1.0
  */
 public class JSONToTextSteps {

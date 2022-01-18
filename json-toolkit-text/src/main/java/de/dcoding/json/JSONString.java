@@ -19,7 +19,6 @@ package de.dcoding.json;
 /**
  * Java class representing a textual JSON value
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONString extends JSONPrimitiveValue<String> {

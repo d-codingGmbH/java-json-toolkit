@@ -19,7 +19,6 @@ package de.dcoding.json.tokens;
 /**
  * Token representing the separator of a JSON property name and its value
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONNameSeparatorToken extends JSONToken {

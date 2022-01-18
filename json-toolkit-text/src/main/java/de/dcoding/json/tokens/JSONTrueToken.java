@@ -19,7 +19,6 @@ package de.dcoding.json.tokens;
 /**
  * Token representing the boolean JSON value TRUE
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONTrueToken extends JSONToken {

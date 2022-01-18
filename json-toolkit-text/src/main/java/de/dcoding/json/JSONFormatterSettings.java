@@ -19,7 +19,6 @@ package de.dcoding.json;
 /**
  * Data class bundling all formatter settings
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONFormatterSettings {

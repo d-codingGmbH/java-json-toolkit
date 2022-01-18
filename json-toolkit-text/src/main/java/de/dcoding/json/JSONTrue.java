@@ -19,7 +19,6 @@ package de.dcoding.json;
 /**
  * Java class representing the boolean JSON value TRUE
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONTrue extends JSONBoolean {

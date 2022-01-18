@@ -29,7 +29,6 @@ import io.cucumber.java.en.Then;
 /**
  * Step definitions for JSON tests
  *
- * @author David Ullrich <david.ullrich@ovsoftware.de>
  * @since  1.0
  */
 public class JSONAssertionSteps {

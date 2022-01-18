@@ -21,7 +21,6 @@ import java.util.Iterator;
 /**
  * Abstract base class for different parser implementations
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public abstract class Parser<T> {
@@ -38,7 +37,7 @@ public abstract class Parser<T> {
    * 
    * @param input The input string that will be parsed
    * @return The parsed object
-   * @throws ParserException
+   * @throws ParserException If parsing malformed data
    */
   public abstract T parse(String input) throws ParserException;
 }

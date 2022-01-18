@@ -19,7 +19,6 @@ package de.dcoding.json;
 /**
  * Java class representing the JSON value NULL
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONNull extends JSONPrimitiveValue<Object> {

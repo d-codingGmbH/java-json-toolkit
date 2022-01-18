@@ -26,7 +26,6 @@ import de.dcoding.parsers.*;
 /**
  * Implementation of an LL parser for parsing a JSON string representation to objects
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONLLParser extends LLParser<JSONValue> {
@@ -44,7 +43,7 @@ public class JSONLLParser extends LLParser<JSONValue> {
    * 
    * @param input The input string that will be parsed
    * @return The parsed object
-   * @throws ParserException
+   * @throws ParserException If parsing malformed data
    */
   @Override
   public JSONValue parse(String input) throws ParserException {
@@ -71,7 +70,7 @@ public class JSONLLParser extends LLParser<JSONValue> {
    * 
    * @param token The token which is to be evaluated
    * @return If the token is relevant or can be ignored
-   * @throws ParserException
+   * @throws ParserException If token is indicating an error state
    */
   @Override
   protected boolean isRelevantToken(Token token) throws ParserException {
@@ -87,7 +86,7 @@ public class JSONLLParser extends LLParser<JSONValue> {
    * The start of the parsing process.
    * 
    * @return The parsed object
-   * @throws ParserException
+   * @throws ParserException If processing malformed data
    */
   @Override
   protected JSONValue processStartSymbol() throws ParserException {

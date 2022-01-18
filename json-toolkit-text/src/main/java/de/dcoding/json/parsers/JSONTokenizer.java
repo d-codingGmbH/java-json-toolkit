@@ -27,7 +27,6 @@ import de.dcoding.parsers.Token;
 /**
  * Tokenizer for use in JSON parsers
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONTokenizer implements Iterator<Token> {

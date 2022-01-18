@@ -25,7 +25,6 @@ import org.junit.runner.RunWith;
 /**
  * Test runner for JSON toolkit tests
  *
- * @author David Ullrich <david.ullrich@ovsoftware.de>
  * @since  1.0
  */
 @RunWith(Cucumber.class)

@@ -22,7 +22,6 @@ import java.util.LinkedList;
 /**
  * Abstract base class for LL parser implementations
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public abstract class LLParser<T> extends Parser<T> {
@@ -46,7 +45,7 @@ public abstract class LLParser<T> extends Parser<T> {
    * 
    * @param input The input string that will be parsed
    * @return The parsed object
-   * @throws ParserException
+   * @throws ParserException If parsing malformed data
    */
   @Override
   public T parse(String input) throws ParserException {
@@ -75,7 +74,7 @@ public abstract class LLParser<T> extends Parser<T> {
    * 
    * @param token The token which is to be evaluated
    * @return If the token is relevant or can be ignored
-   * @throws ParserException
+   * @throws ParserException If token is indicating an error state
    */
   protected abstract boolean isRelevantToken(Token token) throws ParserException;
 
@@ -103,7 +102,7 @@ public abstract class LLParser<T> extends Parser<T> {
    * The start of the parsing process by a concrete implementation.
    * 
    * @return The parsed object
-   * @throws ParserException
+   * @throws ParserException If processing malformed data
    */
   protected abstract T processStartSymbol() throws ParserException;
 }

@@ -19,7 +19,6 @@ package de.dcoding.json.tokens;
 /**
  * Token representing the primitive JSON value NULL
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONNullToken extends JSONToken {

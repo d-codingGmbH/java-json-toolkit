@@ -24,7 +24,6 @@ import io.cucumber.java.en.Given;
 /**
  * Static data for usage in successive steps
  *
- * @author David Ullrich <david.ullrich@ovsoftware.de>
  * @since  1.0
  */
 public class JSONSteps {

@@ -19,7 +19,6 @@ package de.dcoding.parsers;
 /**
  * Abstract base class for tokens
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public abstract class Token extends Symbol {

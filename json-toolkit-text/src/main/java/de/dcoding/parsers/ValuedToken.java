@@ -19,7 +19,6 @@ package de.dcoding.parsers;
 /**
  * Interface for tokens containing a value
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public interface ValuedToken<T> {

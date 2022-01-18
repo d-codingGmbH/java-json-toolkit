@@ -19,7 +19,6 @@ package de.dcoding.parsers;
 /**
  * Token representing an unexpected token which triggers an error in the parsing process
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class ErrorToken extends Token {

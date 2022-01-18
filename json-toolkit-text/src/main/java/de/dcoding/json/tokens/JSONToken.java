@@ -21,7 +21,6 @@ import de.dcoding.parsers.Token;
 /**
  * Abstract base class representing a token for JSON parsers
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public abstract class JSONToken extends Token {

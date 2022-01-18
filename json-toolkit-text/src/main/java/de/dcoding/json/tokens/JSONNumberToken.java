@@ -19,7 +19,6 @@ package de.dcoding.json.tokens;
 /**
  * Token representing a numerical JSON value
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONNumberToken extends ValuedJSONToken<String> {
@@ -27,6 +26,7 @@ public class JSONNumberToken extends ValuedJSONToken<String> {
    * Constructs a new instance of the token with the specified start position.
    * 
    * @param position The start position of the token in the input data
+   * @param value The textual representation of the numerical value
    */
   public JSONNumberToken(int position, String value) {
     super(position, value);

@@ -23,15 +23,16 @@ compileJava.options.encoding     = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
 allprojects {
-  apply plugin: "java"
-  apply plugin: "maven-publish"
-
   repositories {
     mavenCentral()
   }
 }
 
 subprojects {
+  apply plugin: "java"
+  apply plugin: "maven-publish"
+  apply plugin: "jacoco"
+
   group   = "de.d-coding"
   version = "1.0.3"
 
@@ -101,5 +102,13 @@ subprojects {
         }
       }
     }
+  }
+
+  test {
+    finalizedBy jacocoTestReport
+  }
+
+  jacocoTestReport {
+    dependsOn test
   }
 }

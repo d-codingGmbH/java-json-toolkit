@@ -21,7 +21,6 @@ import java.util.Map.Entry;
 /**
  * JSON Formatter to convert a JSONValue into a formatted String
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class JSONFormatter {

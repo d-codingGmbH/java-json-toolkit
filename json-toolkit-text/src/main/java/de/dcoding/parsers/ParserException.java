@@ -19,7 +19,6 @@ package de.dcoding.parsers;
 /**
  * Parser exception for unexpected parser states
  * 
- * @author David Ullrich <david.ullrich@d-coding.de>
  * @since  1.0
  */
 public class ParserException extends Exception {
@@ -45,7 +44,7 @@ public class ParserException extends Exception {
 
   /**
    * Constructs a new exception with the specified cause and a message of
-   * <tt>(cause==null ? null : cause.toString())</tt>.
+   * {@code (cause==null ? null : cause.toString())}.
    * 
    * @param cause The cause of the exception (which is retrievable by the {@link #getCause()} method).
    */
@@ -57,7 +56,7 @@ public class ParserException extends Exception {
    * Constructs a new exception with the specified message and cause.
    * 
    * @param message The message. It retrievable by the {@link #getMessage()}
-   *                method.
+   *        method.
    * @param cause The cause of the exception (which is retrievable by the {@link #getCause()} method).
    */
   public ParserException(String message, Throwable cause) {
