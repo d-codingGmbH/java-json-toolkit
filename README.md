@@ -15,7 +15,7 @@ To use the library in your projects, you have to create the dependency to the li
 Gradle:
 ```gradle
 dependencies {
-  implementation 'de.d-coding:json-toolkit-text:1.0.3'
+  implementation 'de.d-coding:json-toolkit-text:1.0.4'
 }
 ```
 
@@ -24,7 +24,7 @@ Maven:
 <dependency>
   <groupId>de.d-coding</groupId>
   <artifactId>json-toolkit-text</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 
